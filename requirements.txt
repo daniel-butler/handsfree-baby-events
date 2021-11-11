@@ -1,0 +1,5 @@
+aws-xray-sdk
+ask-sdk-core
+boto3
+pynamodb
+humanize
