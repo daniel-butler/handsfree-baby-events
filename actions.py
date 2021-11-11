@@ -1,9 +1,19 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from typing import Optional
+from uuid import uuid4
 
 import humanize
 
 from model import Baby, FeedingEvent
+
+
+def new_baby(
+        baby_name: str,
+        birthday: date,
+) -> tuple[str, Optional[str]]:
+    baby = Baby(hash_key=str(uuid4()), first_name=baby_name, birthdate=birthday)
+    baby.save()
+    return f"You can now start adding events for cute little {baby_name}!", None
 
 
 def new_feeding(
